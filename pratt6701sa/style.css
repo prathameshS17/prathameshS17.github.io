@@ -180,7 +180,7 @@ body {
     bottom: 0;
     background: url("./images/glasses.png") no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: 100rem 67rem;
     background-position: 0 -98;
     filter: grayscale(100%);
     opacity: 0.4;
