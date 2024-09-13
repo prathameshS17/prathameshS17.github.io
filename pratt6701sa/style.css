@@ -172,7 +172,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    filter: grayscale(60%);
+    filter: grayscale(70%);
 }
 
 .container-3 .overlay {  
