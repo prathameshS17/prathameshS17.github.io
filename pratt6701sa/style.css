@@ -46,7 +46,6 @@ body {
 }
 
 /* first page's css */
-
 .lawyer-container {
     position: relative;
     display: flex;
@@ -237,8 +236,8 @@ body {
     background-image: 
         linear-gradient(45deg, #0000 calc(50% - 1px), rgba(204, 204, 204, 0.4), #0000 calc(50% + 1px)),
         linear-gradient(-45deg, #0000 calc(50% - 1px), rgba(204, 204, 204, 0.4), #0000 calc(50% + 1px)), 
-        linear-gradient(90deg, rgba(204, 204, 204, 0.4) 2px, transparent 1px),
-        linear-gradient(0deg, rgba(204, 204, 204, 0.4) 2px, transparent 1px);
+        linear-gradient(90deg, rgba(204, 204, 204, 0.4) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(204, 204, 204, 0.4) 1px, transparent 1px);
     background-size: 
         24px 24px,
         24px 24px, 
