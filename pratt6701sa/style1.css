@@ -166,46 +166,28 @@ body {
 
 /* third page's css */
 .container-3 {
-    position: relative;
-    width:1600px;
-    height: 50rem;
-    overflow: hidden;
-}
-
-.container-3::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("./images/glasses.png") no-repeat;
+    width: 1600px;
+    background-image: url("./images/glasses.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100rem 67rem;
-    background-position: 0 -98;
-    filter: grayscale(100%);
-    opacity: 0.4;
-    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(70%);
 }
 
-.container-3 .overlay {
-    height: 42rem;
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.container-3 .overlay {  
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    padding: 70px 5px;
+    background-color: rgba(235,235,235,0.85);
 }
 
 .prices-title{
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    margin-top: 9rem;
 }
 
 .prices-content {
@@ -266,7 +248,8 @@ body {
 
 
 .price-component-button{
-    background-color: rgb(12, 60, 94);
+    /* background-color: rgb(11, 49, 77); */
+    background-color: rgb(0, 86, 171);
     color:white;
     width: 8.5rem;
     height: 3.5rem;
@@ -346,6 +329,8 @@ body {
 .footer{
     height: 18rem;
     width:1600px;
+    /* background-image: linear-gradient(rgb(44, 51, 60), rgb(24, 28, 34)); */
+    /* background-image: linear-gradient(rgb(33, 40, 51), rgb(29,37,48)); */
     background-color: #1d2530;
     display: flex;
     flex-direction: column;
