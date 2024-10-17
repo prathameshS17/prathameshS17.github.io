@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/datagrouping.js"></script>
+    <script src="https://code.highcharts.com/modules/windbarb.js"></script>
+    <script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-container">
+        <div class="sub-container">
+            <div class="header">
+                <div id="title">
+                    Weather Search
+                </div>
+                <div id="content">
+                    Fill out the form to get weather info!
+                </div>
+            </div>
+
+            <form id="myForm">
+                <div id="street">
+                    <div class="labels">
+                        Street <span class="asterisk">*</span>
+                    </div>
+                    <div>
+                        <input type="text" class="inputs" name="street-name" required value=""/>
+                    </div>
+                </div>
+                
+                <div id="city-state">
+                    <div id="city">
+                        <div class="labels">
+                            City <span class="asterisk">*</span>
+                        </div>
+                        <div class="input-city">
+                            <input type="text" style="width: 100%;" class="inputs" value="" name="city-name" required/>
+                        </div>
+                    </div>
+                    <div id="state">
+                        <div class="labels">
+                            State <span class="asterisk">*</span>
+                        </div>
+                        <div class="input-state">
+                            <select style="width: 100%;background-color: white;" id="select-option" class="inputs" name="state-name" placeholder="Select" required>
+                                <option value="" disabled selected>Select your state</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="color: rgba(0, 0, 0, 0.6); margin: 1.3rem 0rem 0.9rem 0rem;"/>
+
+                <div class="auto-location">
+                    Want us to auto-detect your location? Check here<input type="checkbox" name="location-checked" onclick="autoLocation()"/>
+                </div>
+
+                <div class="input-buttons">
+                    <div>
+                        <input type="submit" value="SUBMIT" class="button-submit"/>
+                    </div>
+                    <div>
+                        <input type="reset" value="CLEAR" class="button-reset"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./weatherDisplay.js"></script>
+    <script>
+        const env = 'https://weather-438902.wl.r.appspot.com/'
+        // const env = 'http://127.0.0.1:5000'
+        let userLocation='';
+        let googleUserLocation='';
+        let address = ''
+        let googleFormatedAddress = ''
+        let weatherData={};
+        let hourlyData = {};
+        let domFirstCard;
+        let selectedCardWeatherData = {}
+        let locationForHourly
+
+        const usStates = [
+            { short: 'AL', value: 'Alabama' },
+            { short: 'AK', value: 'Alaska' },
+            { short: 'AZ', value: 'Arizona' },
+            { short: 'AR', value: 'Arkansas' },
+            { short: 'CA', value: 'California' },
+            { short: 'CO', value: 'Colorado' },
+            { short: 'CT', value: 'Connecticut' },
+            { short: 'DE', value: 'Delaware' },
+            { short: 'FL', value: 'Florida' },
+            { short: 'GA', value: 'Georgia' },
+            { short: 'HI', value: 'Hawaii' },
+            { short: 'ID', value: 'Idaho' },
+            { short: 'IL', value: 'Illinois' },
+            { short: 'IN', value: 'Indiana' },
+            { short: 'IA', value: 'Iowa' },
+            { short: 'KS', value: 'Kansas' },
+            { short: 'KY', value: 'Kentucky' },
+            { short: 'LA', value: 'Louisiana' },
+            { short: 'ME', value: 'Maine' },
+            { short: 'MD', value: 'Maryland' },
+            { short: 'MA', value: 'Massachusetts' },
+            { short: 'MI', value: 'Michigan' },
+            { short: 'MN', value: 'Minnesota' },
+            { short: 'MS', value: 'Mississippi' },
+            { short: 'MO', value: 'Missouri' },
+            { short: 'MT', value: 'Montana' },
+            { short: 'NE', value: 'Nebraska' },
+            { short: 'NV', value: 'Nevada' },
+            { short: 'NH', value: 'New Hampshire' },
+            { short: 'NJ', value: 'New Jersey' },
+            { short: 'NM', value: 'New Mexico' },
+            { short: 'NY', value: 'New York' },
+            { short: 'NC', value: 'North Carolina' },
+            { short: 'ND', value: 'North Dakota' },
+            { short: 'OH', value: 'Ohio' },
+            { short: 'OK', value: 'Oklahoma' },
+            { short: 'OR', value: 'Oregon' },
+            { short: 'PA', value: 'Pennsylvania' },
+            { short: 'RI', value: 'Rhode Island' },
+            { short: 'SC', value: 'South Carolina' },
+            { short: 'SD', value: 'South Dakota' },
+            { short: 'TN', value: 'Tennessee' },
+            { short: 'TX', value: 'Texas' },
+            { short: 'UT', value: 'Utah' },
+            { short: 'VT', value: 'Vermont' },
+            { short: 'VA', value: 'Virginia' },
+            { short: 'WA', value: 'Washington' },
+            { short: 'WV', value: 'West Virginia' },
+            { short: 'WI', value: 'Wisconsin' },
+            { short: 'WY', value: 'Wyoming' }
+        ];
+        
+        usStates.forEach((state)=>{
+            let node = document.createElement('option')
+            node.innerHTML =state.value
+            node.setAttribute('name',state.short)
+            node.setAttribute('value',state.value)
+            document.getElementById('select-option').appendChild(node)
+        })
+
+        async function autoLocation(){
+            try{
+                const formData = new FormData(form);
+                document.getElementsByName('street-name')[0].value = null
+                formData.get('location-checked')? document.getElementsByName('street-name')[0].removeAttribute('required'):document.getElementsByName('street-name')[0].setAttribute('required',true)
+
+                document.getElementsByName('city-name')[0].value = null
+                formData.get('location-checked')? document.getElementsByName('city-name')[0].removeAttribute('required') : document.getElementsByName('city-name')[0].setAttribute('required',true)
+
+                document.getElementsByName('state-name')[0].value = ""
+                formData.get('location-checked')? document.getElementsByName('state-name')[0].removeAttribute('required') : document.getElementsByName('state-name')[0].setAttribute('required',true)
+
+                let response = await fetch("https://ipinfo.io/json?token=e21c9e7a31d501")
+                const data = await response.json();
+                userLocation = data.loc
+                address=data.city + ', ' +data.region
+            }
+            catch(e){
+                console.log("There is an error while fetching location from ipinfo../...",e)
+            }
+        }
+        
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            if(formData.get('location-checked')){
+                if (document.getElementById('error-container')) document.getElementById('error-container').remove()
+                await submitFormAutoLocation(userLocation,address)
+            }else{
+                googleUserLocation = await getGoogleEcodingLocation(formData.get('street-name'),formData.get('city-name'))
+                if(googleUserLocation) {
+                    if (document.getElementById('error-container')) document.getElementById('error-container').remove()
+                    await submitFormAutoLocation(googleUserLocation,googleFormatedAddress)
+                }
+
+                /*................................ Have to remove ................................*/
+                // else{
+                //     let parentNode = document.createElement('div')
+                //     parentNode.setAttribute('id','error-container')
+                //     parentNode.innerHTML = `<div class="error">No record have been found.</div>`
+                //     document.getElementById('main-container').appendChild(parentNode)
+                //     return false
+                // }
+            }
+        });
+
+        form.addEventListener('reset', function(event) {
+            document.getElementsByName('street-name')[0].setAttribute('required',true)
+            document.getElementsByName('city-name')[0].setAttribute('required',true)
+            document.getElementsByName('state-name')[0].setAttribute('required',true)
+            
+            if(document.getElementById('first-card')) document.getElementById('first-card').remove()
+            if(document.getElementById('table-card-1')) document.getElementById('table-card-1').remove()
+            if(document.getElementById('daily-container')) document.getElementById('daily-container').remove()
+            if(document.getElementById('chart-entry-title')) document.getElementById('chart-entry-title').remove()
+            if (document.getElementById('error-container')) document.getElementById('error-container').remove()
+        });
+
+        async function submitFormAutoLocation(recUserLocation,addr){
+            try{
+                locationForHourly = recUserLocation
+                if(document.getElementById('first-card')) document.getElementById('first-card').remove()
+                if(document.getElementById('table-card-1')) document.getElementById('table-card-1').remove()
+                if(document.getElementById('daily-container')) document.getElementById('daily-container').remove()
+                if(document.getElementById('chart-entry-title')) document.getElementById('chart-entry-title').remove()
+                if (document.getElementById('error-container')) document.getElementById('error-container').remove()
+                let url= `${env}/getWeatherData/${recUserLocation}`
+                let reply = await fetch(url.toString(),{
+                    method:'GET',
+                    headers:{
+                        'Content-Type': 'application/json',
+                    }
+                });
+                if(reply.status==200){
+                    weatherData = await reply.text();
+                }else{
+                    let parentNode = document.createElement('div')
+                    parentNode.setAttribute('id','error-container')
+                    parentNode.innerHTML = `<div class="error">No record have been found.</div>`
+                    document.getElementById('main-container').appendChild(parentNode)
+                    return false
+                }
+
+                weatherData = JSON.parse(weatherData)
+                createWeatherCard(weatherData.data[0].intervals[0],addr);
+                createWeatherTable(weatherData.data[0].intervals)
+            }catch(e){
+                console.log("Error is requesting data from server.../...",e) 
+            }
+        }
+
+        const getGoogleEcodingLocation=async(street,city) => {
+            try{
+                let stateElement = document.getElementById('select-option');
+                let selectedOption = stateElement.options[stateElement.selectedIndex];
+                let state = selectedOption.getAttribute('name');
+                let address = (street+" "+city+ " " +state).replace(/\s/g,"%20")
+                let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyBi9B-Ny99R-V-UIKhVZRlr0HS6-bkds_8`)
+                const data = await response.json();
+                googleFormatedAddress = data.results[0].formatted_address 
+                let {lat, lng}= data.results[0].geometry.location;
+                return `${lat},${lng}` 
+            }catch(e){
+                console.log('Error, receiving google geocoding.../...',e)
+            }
+        }
+
+        const dailyWeather = (index)=>{
+            document.getElementById('first-card').remove()
+            document.getElementById('table-card-1').remove()
+            selectedCardWeatherData = weatherData.data[0].intervals.find((_,idx)=>idx==index)
+            createChartSummary(selectedCardWeatherData)
+        }
+
+        const showCharts=async()=>{
+            let url= `${env}/getHourlyData/${locationForHourly}`
+                let reply = await fetch(url.toString(),{
+                    method:'GET',
+                    headers:{
+                        'Content-Type': 'application/json',
+                    }
+            });
+            if(reply.status==200){
+                hourlyData = await reply.text();
+            }
+            hourlyData = JSON.parse(hourlyData);
+
+            let node = document.createElement('div')
+            node.setAttribute('id','charts-container')
+            node.innerHTML =  `
+                    <img src="./Images/point-up-512.png" class="point-down" id="up-image"  alt=""/>
+                    <div class="charts">
+                        <div id="arearangechart" style="width: 880px; height: 308px;margin:0.8rem 0rem"></div>
+                        <div id="container-hourly" style="width: 880px; height: 308px;margin:0.8rem 0rem 1rem 0rem"></div>
+                    </div>
+            ` 
+
+            let jsScript = document.createElement('script')
+            jsScript.setAttribute('src','./areaRange.js')
+            node.appendChild(jsScript)
+            jsScript.onload = function() {
+                chart1(weatherData.data[0].intervals.slice(0,5));
+                chart2(hourlyData.data[0])
+            };
+
+            node.children[0].addEventListener('click',()=>constToggle())
+            document.getElementById('chart-entry-title').replaceChild(node, document.getElementById('chart-entry-title').children[1])
+            document.getElementById('charts-container').scrollIntoView()
+        }
+
+        let constToggle=()=>{
+            let imgNode = document.createElement('img');
+            imgNode.src = './Images/point-down-512.png';
+            imgNode.className = 'point-down';
+            imgNode.id = 'down-image';
+            imgNode.alt = '';
+            imgNode.addEventListener('click',()=>showCharts())
+            document.getElementById('chart-entry-title').replaceChild(imgNode, document.getElementById('chart-entry-title').children[1])
+        }
+    </script>
+</body>
+</html>

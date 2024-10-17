@@ -1,0 +1,518 @@
+:root{
+    --font-color:rgba(0, 0, 0, 0.6);
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(230,230,230);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#error-container{
+    display: flex;
+    justify-content: center;
+}
+
+.error{
+    width: 525px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-top: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-right: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-bottom: 0.18rem solid rgba(0, 0, 0, 0.3);
+    border-left: 0.09rem solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    padding: 0.8rem;
+    margin-top: 2rem;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3.1rem 0rem 2.8rem 0rem;
+    /* width: 1500px; */
+}
+
+.sub-container {
+    background-color: white;
+    border-top: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-right: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-bottom: 0.18rem solid rgba(0, 0, 0, 0.3);
+    border-left: 0.09rem solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    height: 405px;
+    width: 525px;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;    
+    color: rgba(0, 0, 0,0.8);
+    border-bottom: 0.09rem solid rgba(0, 0, 0,0.3);
+    padding: 0rem 2.5rem;
+    box-sizing: border-box;
+    background-image: url('./Images/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: 235%;
+    background-position:0rem -4rem;
+    height: 10rem;
+}
+
+#title{
+    font-size: larger;
+    font-weight: 600;
+    margin-top: 1.8rem;
+    margin-bottom: 1.05rem;
+    color:var(--font-color)
+}
+
+#content{
+    font-size: 1.04rem ;
+    margin-bottom: 1rem;
+    color:var(--font-color)
+}
+
+#myForm{
+    width: 100%;
+    height: 100%;
+    padding: 1.3rem 2rem;
+    box-sizing: border-box;
+}
+
+.labels{
+    margin-bottom: 0.3rem;
+    color: rgb(59, 157, 227);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.asterisk{
+    color: red;
+}
+
+.inputs{
+    padding: 0.4rem 0.4rem;
+    box-sizing: border-box;
+    border: 0.5px solid rgba(0, 0, 0,0.8);
+}
+
+.inputs:focus{
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0,0.8);
+}
+
+#street{
+    width: 100%;    
+}
+
+#street input{
+    width: 100%;
+}
+
+#city-state{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-city{
+    width:210px;
+}
+
+.input-state{
+    width:210px;
+}
+
+.auto-location{
+    color: rgb(59, 157, 227);
+    font-size: 1rem ;
+    margin-bottom:1rem;
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.input-buttons{
+    display: flex;
+    gap: 0.2rem;
+    margin-top: 1.7rem;
+}
+
+.button-submit{
+    background-color: rgb(73,108,172);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 4.7px solid rgb(51,75,120);
+    outline: none;
+    padding: 0.6rem 1.5rem;
+    color: white;
+}
+
+.button-reset{
+    background-color: rgb(255,184,13);
+    border-bottom: 4.7px solid rgb(255,130,0);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    outline: none;
+    padding: 0.6rem 1.5rem;
+    color: white;
+}
+
+/* ................................... Basic First Card ...................................... */
+#first-card{
+    display: flex;
+    justify-content: center;
+    /* width: 1500px; */
+}
+
+.first-card-container{ 
+    background-color: white;
+    border-top: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-right: 0.09rem solid rgba(0, 0, 0, 0.3);
+    border-bottom: 0.2rem solid rgba(0, 0, 0, 0.3);
+    border-left: 0.09rem solid rgba(0, 0, 0, 0.3);
+    height: 412px;
+    width: 740px;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.first-card-container:hover{
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.first-card-address{
+    font-size: 25px;
+    color:var(--font-color);
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
+.first-card-weather{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 57%;
+}
+
+.first-card-image{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.weather-code-image-head{
+    height: 140px;
+    margin-top: 0.9rem;
+}
+
+.image-title{
+    color:var(--font-color);
+    font-size: 18px;
+    font-family: 'Roboto';  
+    font-weight: 500;
+    text-align: center;
+}
+
+.first-card-weather-value{
+    width: 100%;
+    font-size: 140px;
+    font-weight:normal;
+    color:var(--font-color);
+    font-family: 'Roboto';
+    font-weight: 300;
+    height: 100%;
+    display: flex;
+    align-items: start;
+}
+
+.first-card-other{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.12rem;
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+
+.first-card-images{
+    width: 35px;
+    height: 35px; 
+    margin-top: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.first-card-humidity{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+.first-card-pressure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+.first-card-wind{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+.first-card-visibility{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+.first-card-cloud{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+.first-card-uv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:var(--font-color);
+}
+
+/* ................................ Table   ....................................*/
+#table-card-1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.7rem 0rem 0rem 0rem;
+    /* width: 1500px; */
+}
+
+.table-head-1{
+    display: flex;
+    background-color: rgb(79,111,173);
+    width: 1075px;
+    padding: 0.6rem 0rem 0.6rem 0rem;
+    height: 2.8rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color:rgba(0, 0, 0, 0.8);
+}
+
+.table-data-1{
+    display: flex;
+    background-color: white;
+    width: 1075px;
+    padding: 0.2rem 0rem 0.2rem 0rem;
+    height: 4.9rem;
+    box-sizing: border-box;
+    border-left: 0.1px solid rgba(0, 0, 0,0.4);
+    border-right: 0.1px solid rgba(0, 0, 0,0.4);
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.column-1{
+    display: flex;
+    align-items: center;
+    width: 52%;
+}
+.date-1{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.status-1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.table-status{
+    width: 58px;
+}
+
+.column-2{
+    display: flex;
+    align-items: center;
+    width: 48%;
+}
+
+.temp-high{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.temp-low{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.wind-speed-1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ................................ Daily Chart ....................................*/
+#daily-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.daily-title{
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-family: 'Roboto';
+}
+
+.daily-card {
+    margin-top: 0.9rem;
+    background: linear-gradient(to bottom, white, rgb(59,80,123));
+    border: 3px solid rgb(222, 221, 221);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    height: 425px;
+    width: 525px;
+    padding: 0rem 0.9rem;
+    box-sizing: border-box;
+}
+
+.daily-card:hover{
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.daily-card-upper{
+    display: flex;
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+.daily-card-title{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 80%;
+}
+
+.daily-date{
+    font-size: 1.6rem;
+    color: rgb(57,77,120);
+    font-family: 'Roboto';
+    font-weight: 400;
+}
+
+.daily-weather{
+    font-size: 1.6rem;
+    margin: 1.35rem 0rem;
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: rgb(57,77,120);
+}
+
+.daily-temperature{
+    font-size: 1.97rem;
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: rgb(57,77,120);
+}
+
+.daily-card-image-container{
+    display: flex;
+    width: 45%;
+}
+
+.daily-card-image{
+    height: 180px;
+}
+
+.daily-card-inner{
+    margin-top: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:0.6rem;
+    font-family: 'Roboto';
+    font-weight: 500;
+    width: 100%;
+}
+
+.daily-card-inner-container{
+    display: flex;
+    justify-content: center;
+}
+
+.daily-key{
+    font-size: 17px;
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}
+
+.daily-value{
+    font-size: 20px;
+    line-height: 18px;
+    padding-left: 0.5rem;
+    box-sizing: border-box;
+    width: 50%;
+    font-weight: 600;
+}
+
+/* ............................. Weather Charts .................................*/
+#chart-entry-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.2rem;
+    font-weight: 300;
+    font-family: 'Roboto';
+}
+
+.point-down{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+#charts-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+
+}
+
+.charts{
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.arearangechart{
+    width:880px;
+    height: 357px;  
+}
