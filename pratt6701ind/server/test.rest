@@ -1,0 +1,24 @@
+
+###
+Get http://localhost:8080/getWeatherData/34.0522,-118.2437 HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8080/getHourlyData/34.0522,-118.2437 HTTP/1.1
+content-type: application/json
+
+###
+GEt http://localhost:8080/addFav/Los Angeles, California/34.0522,-118.2437 HTTP/1.1
+content-type: application/json
+
+###
+GEt http://localhost:8080/deleteFav/Los Angeles, California HTTP/1.1
+content-type: application/json
+
+###
+GEt http://localhost:8080/getFavList HTTP/1.1
+content-type: application/json
+
+###
+GEt http://localhost:8080/getPlaces/New York HTTP/1.1
+content-type: application/json

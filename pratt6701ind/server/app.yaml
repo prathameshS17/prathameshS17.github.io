@@ -1,0 +1,5 @@
+runtime: nodejs20 
+
+env_variables:
+  NODE_ENV: production
+  DB_URI: "mongodb+srv://shindep:dmuIpuc1T5BoP4ox@cluster0.lqhdt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
