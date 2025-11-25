@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roseland English Medium School</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="custom.css" rel="stylesheet">
+</head>
+<body>
+    <!--#913164. #214177-->
+
+    <!--NavBar-->
+    <div id="navbar" class="fixed top-0 left-0 w-full h-28 flex items-center justify-between px-10 transition-all duration-300 bg-transparent z-20 text-white">
+        <div class=""> 
+            <img src="./images/logo-roseland.png" class="h-24 w-24"/>
+        </div>
+
+        <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
+            <img src="./images/hamburger.png" class="h-10 w-10"/>
+        </button>
+
+        <div class="hidden lg:flex items-center gap-12 font-semibold">
+            <div class="nav-link cursor-pointer" data-target="home">Home</div>
+            <div class="nav-link cursor-pointer" data-target="about">About</div>
+            <div class="nav-link cursor-pointer" data-target="academics">Academics</div>
+            <div class="nav-link cursor-pointer" data-target="facilities">Facilities</div>
+            <div class="nav-link cursor-pointer" data-target="student-life">Student Life</div>
+            <div class="nav-link cursor-pointer" data-target="gallery">Gallery</div>
+            <div class="nav-link cursor-pointer" data-target="admissions-main">Admissions</div>
+            <!-- <div class="nav-link cursor-pointer" data-target="managementStaff">Management & Staff</div> -->
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden w-screen h-screen bg-black/50 absolute left-0 top-0 z-30">
+            <div id="sidebar" class="absolute top-0 right-0 flex flex-col gap-10 font-semibold 
+                        bg-white text-gray-700 w-1/2 h-screen transform 
+                        transition-transform duration-300 p-6">
+
+                <img id="close-menu" src="./images/cancel.png" class="h-10 w-10 cursor-pointer self-end"/>
+
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="home">Home</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="about">About</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="academics">Academics</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="facilities">Facilities</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="student-life">Student Life</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="gallery">Gallery</div>
+                <div class="nav-link-mobile nav-link cursor-pointer" data-target="admissions-main">Admissions</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const sidebar = document.getElementById("sidebar");
+        const closeMenu = document.getElementById("close-menu");
+
+        // Open Sidebar
+        hamburger.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+            sidebar.classList.remove("translate-x-full");
+        });
+
+        // Close Sidebar
+        closeMenu.addEventListener("click", () => {
+            sidebar.classList.add("translate-x-full");
+            setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+        });
+
+        // Close by clicking outside
+        mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+                sidebar.classList.add("translate-x-full");
+                setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+            }
+        });
+
+        document.querySelectorAll(".nav-link-mobile").forEach(link => {
+            link.addEventListener("click", () => {
+                setTimeout(() =>  sidebar.classList.add("translate-x-full"), 400);
+                setTimeout(() => mobileMenu.classList.add("hidden"), 600);
+            });
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <div id="home" class="h-full flex justify-center items-center">
+        <section class="relative text-white md:h-[50rem] h-[48rem] flex flex-col items-center justify-center w-full" style="background-image: linear-gradient(to right, #c54b85, #d378a3)">
+            <div class="lg:px-10 md:px-8 px-6 flex flex-col items-center w-full">
+                <div class="mb-4 flex items-center gap-1 text-white px-4 py-2 rounded-full backdrop-blur-md bg-white/20 border border-rose-200/30 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-4 h-4 text-secondary"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+                    <div class="text-sm">Since 1974</div>
+                </div>
+                <div class="font-semibold lg:text-7xl md:text-6xl sm:text-5xl text-4xl leading-tight mb-4 text-center">
+                    Empowering Young Minds Through Education
+                </div>
+                <p class="md:text-xl sm:text-base text-sm lg:max-w-3xl md:max-w-2xl max-w-lg text-center leading-relaxed">
+                    Jalgaon's only English Medium School offering quality education at an affordable cost for more than 5 decades
+                </p>
+            </div>
+            <div class="absolute bottom-[-2px] w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#ffffff"  d="M0,192L80,176C160,160,320,128,480,144C640,160,800,224,960,234.7C1120,245,1280,203,1360,181.3L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+                </svg>            
+            </div>
+        </section> 
+    </div>
+
+    <!-- Welcome Page -->
+    <div class="h-full flex flex-col justify-center items-center">
+        <section class="flex flex-col items-center px-10 my-10">
+            <div class="font-semibold md:text-5xl sm:text-4xl text-3xl mb-5">Welcome to Roseland</div>
+            <div class="max-w-4xl mx-auto space-y-4 md:text-lg text-sm">
+                <div class="text-center text-gray-500">Welcome to <span class="text-primary-400 font-semibold">Roseland English Medium High School</span> — where learning meets purpose! Established in 1974 by the visionary educationist Mrs. Daulat Khimani, Roseland stands as the only institution in Jalgaon offering quality English Medium Education at an affordable cost, ensuring that every child gets the opportunity to learn, grow, and excel.</div>
+                <div class="text-center text-gray-500">For over five decades, Roseland has been more than just a school — it's been a family of learners, dreamers, and achievers. Our mission is to shape young minds with excellence, ethics, and empathy, preparing them to thrive in a global world while staying rooted in Indian values.</div>
+                <div class="text-center text-gray-500">At Roseland, we believe education should inspire curiosity and creativity. Our state-of-the-art infrastructure, experienced and caring faculty, and innovative teaching practices provide a nurturing environment where every child's potential is discovered and celebrated.</div>
+            </div>
+        </section>
+
+        <!-- Desktop View -->
+        <div class="hidden lg:grid grid-cols-4 gap-4 mx-36 my-10">
+            <div id="excellence" class="col-span-1 flex flex-col items-center py-6 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-8 h-8 text-primary"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                </div>
+                <div class="text-xl font-semibold">Excellence</div>
+                <div class="text-sm text-center text-gray-500">Over 50 years of academic excellence and innovation</div>
+            </div>
+
+            <div id="community" class="col-span-1 flex flex-col items-center py-6 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-8 h-8 text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="text-xl font-semibold">Community</div>
+                <div class="text-sm text-center text-gray-500">A family of learners, dreamers, and achievers</div>
+            </div>
+
+            <div id="values" class="col-span-1 flex flex-col items-center py-6 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award w-8 h-8 text-primary"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                </div>
+                <div class="text-xl font-semibold">Values</div>
+                <div class="text-sm text-center text-gray-500">Shaping young minds with ethics and empathy</div>
+            </div>
+
+            <div id="global" class="col-span-1 flex flex-col items-center py-6 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-8 h-8 text-primary"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                </div>
+                <div class="text-xl font-semibold">Global</div>
+                <div class="text-sm text-center text-gray-500">International learning programs and exposure</div>
+            </div>
+
+        </div>
+
+        <!-- Tablet View -->
+        <div class="hidden lg:hidden md:grid grid-cols-4 gap-4 mx-10 my-10">
+            <div id="excellence" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-8 h-8 text-primary"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Excellence</div>
+                <div class="text-sm text-center text-gray-500">Over 50 years of academic excellence and innovation</div>
+            </div>
+
+            <div id="community" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-8 h-8 text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Community</div>
+                <div class="text-sm text-center text-gray-500">A family of learners, dreamers, and achievers</div>
+            </div>
+
+            <div id="values" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award w-8 h-8 text-primary"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                </div>
+                <div class="text-base font-semibold">Values</div>
+                <div class="text-sm text-center text-gray-500">Shaping young minds with ethics and empathy</div>
+            </div>
+
+            <div id="global" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-8 h-8 text-primary"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Global</div>
+                <div class="text-sm text-center text-gray-500">International learning programs and exposure</div>
+            </div>
+
+        </div>
+
+        <!-- Mobile View -->
+        <div class="md:hidden grid grid-cols-2 gap-4 mx-10 my-10">
+            <div id="excellence" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-8 h-8 text-primary"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Excellence</div>
+                <div class="text-sm text-center text-gray-500">Over 50 years of academic excellence and innovation</div>
+            </div>
+
+            <div id="community" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-8 h-8 text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Community</div>
+                <div class="text-sm text-center text-gray-500">A family of learners, dreamers, and achievers</div>
+            </div>
+
+            <div id="values" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award w-8 h-8 text-primary"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                </div>
+                <div class="text-base font-semibold">Values</div>
+                <div class="text-sm text-center text-gray-500">Shaping young minds with ethics and empathy</div>
+            </div>
+
+            <div id="global" class="col-span-1 flex flex-col items-center py-5 px-5 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-2 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 rounded-full bg-secondary-50 flex justify-center items-center px-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-8 h-8 text-primary"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                </div>
+                <div class="text-base font-semibold">Global</div>
+                <div class="text-sm text-center text-gray-500">International learning programs and exposure</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--About Us -->
+    <div id="about" class="h-full flex flex-col justify-center items-center py-20 bg-gray-50">
+        <section class="flex flex-col items-center md:px-10 gap-3 mb-10">
+            <div class="font-semibold md:text-5xl sm:text-4xl text-3xl">About Us</div>
+            <div class="text-gray-500 md:text-lg text-sm">Building a legacy of excellence since 1974</div>
+        </section>
+
+        <!-- Desktop View -->
+        <div class="hidden lg:grid grid-cols-3 gap-10 mx-36">
+            <div id="legacy" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 w-6 h-6 text-primary"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Legacy</div>
+                </div>
+
+                <div class="text-gray-500">
+                    Founded in 1974, Roseland English Medium High School has been a cornerstone of quality education in Jalgaon for over five decades.
+                </div>
+                <div class="text-gray-500">
+                    Our founder, Mrs. Daulat Khimani, envisioned a school that would empower children with English-medium education and values that last a lifetime.
+                </div>
+                <div class="text-gray-500">
+                    Today, Roseland continues to inspire thousands of students, balancing academic excellence with character-building and life skills.
+                </div>
+            </div>
+
+            <div id="vision" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye w-6 h-6 text-secondary"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Vision</div>
+                </div>
+
+                
+                <div class="text-gray-500">
+                    To be a leading institution that empowers every child with quality education, strong values, and global competencies.                
+                </div>
+                <div class="text-gray-500">
+                    We envision creating well-rounded individuals who are not only academically excellent but also confident, compassionate, and prepared to make a positive impact in the world.                
+                </div>
+            </div>
+
+            <div id="mission" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-accent"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Mission</div>
+                </div>
+
+                
+                <div class="text-gray-500">
+                    To provide accessible, affordable, and quality English-medium education that nurtures curiosity, creativity, and critical thinking.
+                </div>
+                <div class="text-gray-500">
+                    We are committed to holistic development through modern facilities, experienced faculty, and innovative teaching methodologies aligned with the National Education Policy (NEP).
+                </div>
+            </div>
+        </div>
+
+        <!-- Tablet View -->
+        <div class="hidden lg:hidden md:grid grid-cols-1 gap-5 mx-10">
+            <div id="legacy" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 w-6 h-6 text-primary"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Legacy</div>
+                </div>
+
+                <div class="text-gray-500">
+                    Founded in 1974, Roseland English Medium High School has been a cornerstone of quality education in Jalgaon for over five decades.
+                </div>
+                <div class="text-gray-500">
+                    Our founder, Mrs. Daulat Khimani, envisioned a school that would empower children with English-medium education and values that last a lifetime.
+                </div>
+                <div class="text-gray-500">
+                    Today, Roseland continues to inspire thousands of students, balancing academic excellence with character-building and life skills.
+                </div>
+            </div>
+
+            <div id="vision" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye w-6 h-6 text-secondary"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Vision</div>
+                </div>
+
+                
+                <div class="text-gray-500">
+                    To be a leading institution that empowers every child with quality education, strong values, and global competencies.                
+                </div>
+                <div class="text-gray-500">
+                    We envision creating well-rounded individuals who are not only academically excellent but also confident, compassionate, and prepared to make a positive impact in the world.                
+                </div>
+            </div>
+
+            <div id="mission" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-accent"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>                    </div>
+                    <div class="text-xl font-semibold">Our Mission</div>
+                </div>
+
+                
+                <div class="text-gray-500">
+                    To provide accessible, affordable, and quality English-medium education that nurtures curiosity, creativity, and critical thinking.
+                </div>
+                <div class="text-gray-500">
+                    We are committed to holistic development through modern facilities, experienced faculty, and innovative teaching methodologies aligned with the National Education Policy (NEP).
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile View -->
+        <div class="md:hidden grid grid-cols-1 gap-5 mx-10">
+            <div id="legacy" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-10 w-10 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2 w-6 h-6 text-primary"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>                    </div>
+                    <div class="text-base font-semibold">Our Legacy</div>
+                </div>
+
+                <div class="text-gray-500 text-sm">
+                    Founded in 1974, Roseland English Medium High School has been a cornerstone of quality education in Jalgaon for over five decades.
+                </div>
+                <div class="text-gray-500 text-sm">
+                    Our founder, Mrs. Daulat Khimani, envisioned a school that would empower children with English-medium education and values that last a lifetime.
+                </div>
+                <div class="text-gray-500 text-sm">
+                    Today, Roseland continues to inspire thousands of students, balancing academic excellence with character-building and life skills.
+                </div>
+            </div>
+
+            <div id="vision" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-10 w-10 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye w-6 h-6 text-secondary"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>                    </div>
+                    <div class="text-base font-semibold">Our Vision</div>
+                </div>
+
+                
+                <div class="text-gray-500 text-sm">
+                    To be a leading institution that empowers every child with quality education, strong values, and global competencies.                
+                </div>
+                <div class="text-gray-500 text-sm">
+                    We envision creating well-rounded individuals who are not only academically excellent but also confident, compassionate, and prepared to make a positive impact in the world.                
+                </div>
+            </div>
+
+            <div id="mission" class="col-span-1 flex flex-col items-center py-5 px-6 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-lg space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="flex justify-start items-center gap-3 w-full">
+                    <div class="h-10 w-10 rounded-xl bg-secondary-50 flex justify-center items-center px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target w-6 h-6 text-accent"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>                    </div>
+                    <div class="text-base font-semibold">Our Mission</div>
+                </div>
+
+                
+                <div class="text-gray-500 text-sm">
+                    To provide accessible, affordable, and quality English-medium education that nurtures curiosity, creativity, and critical thinking.
+                </div>
+                <div class="text-gray-500 text-sm">
+                    We are committed to holistic development through modern facilities, experienced faculty, and innovative teaching methodologies aligned with the National Education Policy (NEP).
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Academics at Roseland -->
+    <div  id="academics" class="h-full w-full lg:px-36 px-10 flex flex-col justify-center items-center bg-white py-20">
+        <section class="flex flex-col items-center mb-8 gap-5 md:max-w-4xl">
+            <div class="font-semibold md:text-5xl sm:text-4xl text-3xl text-center"> Academics at Roseland</div>
+            <div class="text-gray-500 text-center md:text-lg text-sm">Well-structured curriculum aligned with NEP, fostering essential skills, creativity, and 21st-century values</div>
+        </section>
+
+        <div class="py-1 px-1 bg-gray-200 grid grid-cols-3 gap-2 rounded-lg max-w-4xl mb-6 lg:text-base sm:text-sm text-xs">
+            <div id="preprimary" class="text-gray-500 col-span-1 bg-white flex items-center justify-center py-2.5 md:px-10 sm:px-8 px-3 rounded-sm cursor-pointer" onclick="academicsFunction('preprimary')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="sm:block hidden pr-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baby w-4 h-4 mr-2"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg>
+                Pre-Primary
+            </div>
+            <div id="primary" class="text-gray-500 col-span-1 flex items-center justify-center py-2.5 md:px-10 sm:px-8 px-3 rounded-sm cursor-pointer" onclick="academicsFunction('primary')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="sm:block hidden pr-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-4 h-4 mr-2"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+                Primary
+            </div>
+            <div id="secondary" class=" text-gray-500 col-span-1 flex items-center justify-center py-2.5 md:px-10 sm:px-8 px-3 rounded-sm cursor-pointer" onclick="academicsFunction('secondary')">
+                <svg xmlns="http://www.w3.org/2000/svg" class="sm:block hidden pr-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap w-4 h-4 mr-2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                Secondary
+            </div>
+        </div>
+
+        <div class="border-2 border-gray-200 rounded-xl flex flex-col w-full px-4 py-5 mb-10">
+            <div class="font-semibold flex items-center mb-4 gap-2">
+                <div id="academics-svg" class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baby w-4 h-4 mr-2"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg>
+                </div>
+                <div id="class-title" class="md:text-2xl text-base">Rose Town Preschool</div>
+            </div>
+            <div id="academics-content" class="md:text-base text-sm">
+                <div class="mb-4 text-gray-500">Our pre-primary program focuses on <span class="text-gray-900 font-semibold">play-based learning</span> to nurture curiosity and a love for learning from an early age.</div>
+                <div class="mb-4 text-gray-500">Children are introduced to phonics, numbers, colors, and shapes through interactive activities, storytelling, and creative play.</div>
+                <div class="mb-4 text-gray-500">The emphasis is on building <span class="text-gray-900 font-semibold">social skills, confidence</span>, and a strong foundation for lifelong learning.</div>
+            </div>
+        </div>
+
+        <div class="border-2 border-gray-200 rounded-xl flex flex-col w-full px-4 py-5">
+            <div class="font-semibold flex items-center mb-4 gap-2">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb w-6 h-6 text-primary"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>               
+                </div>
+                <div class="md:text-2xl text-base">Special Highlights Across All Levels</div>
+            </div>
+
+            <ul class="list-disc pl-7 md:text-base text-sm">
+                <li class="custom-bullet mb-4 text-gray-500">Curriculum aligned with NEP 2020</li>
+                <li class="custom-bullet mb-4 text-gray-500">English and foreign language proficiency</li>
+                <li class="custom-bullet mb-4 text-gray-500">Annual interaction with visiting faculty from USA</li>
+                <li class="custom-bullet mb-4 text-gray-500">Digital learning tools in every classroom</li>
+                <li class="custom-bullet mb-4 text-gray-500">Holistic development focus</li>
+            </ul>
+            <style>
+                .custom-bullet::marker {
+                    color: #214177;
+                    font-size: 1.2rem;
+                }
+            </style>
+        </div>
+    </div>
+   
+    <!--Facilities at Roseland -->
+    <div id="facilities" class="h-full w-full lg:px-36 px-10 flex flex-col justify-center items-center py-20 bg-gray-50">
+        <section class="flex flex-col items-center mb-8 gap-5 md:max-w-4xl">
+            <div class="font-semibold md:text-5xl sm:text-4xl text-3xl text-center"> State-of-the-Art Facilities</div>
+            <div class="text-gray-500 text-center md:text-lg text-sm">Every facility thoughtfully designed to support academic excellence, creativity, and overall growth</div>
+        </section>
+
+        <!-- Desktop View -->
+        <div class="hidden lg:grid grid-cols-3 gap-6 my-10">
+            <div id="computer" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop w-7 h-7 text-primary"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path></svg>
+                </div>
+                <div class="text-xl font-bold">Computer Lab</div>
+                <div class="text-sm text-gray-500">Latest technology enabling students to explore the digital world confidently. From coding basics to multimedia projects.</div>
+            </div>
+            <div id="science"  class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flask-conical w-7 h-7 text-primary"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg>                   
+                </div>
+                <div class="text-xl font-bold">Science Lab</div>
+                <div class="text-sm text-gray-500">Designed for curiosity-driven learning with hands-on experiments, strengthening scientific temperament and understanding.</div>
+            </div>
+            <div id="library"  class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library w-7 h-7 text-primary"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg>                
+                </div>
+                <div class="text-xl font-bold">Library</div>
+                <div class="text-sm text-gray-500">A treasure trove of knowledge housing a vast collection of books, journals, and digital resources.</div>
+            </div>
+            <div id="classroom" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school w-7 h-7 text-primary"><path d="M14 22v-4a2 2 0 1 0-4 0v4"></path><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10"></path><path d="M18 5v17"></path><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6"></path><path d="M6 5v17"></path><circle cx="12" cy="9" r="2"></circle></svg>                
+                </div>
+                <div class="text-xl font-bold">Well-Furnished Classrooms</div>
+                <div class="text-sm text-gray-500">Spacious, ventilated, and technology-enabled classrooms providing a comfortable and stimulating learning environment.</div>
+            </div>
+            <div id="playground"  class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-primary"><rect x="2" y="4" width="20" height="16"></rect><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="3"></circle><rect x="2" y="8" width="5" height="8"></rect><circle cx="7" cy="12" r="3"></circle><rect x="17" y="8" width="5" height="8"></rect><circle cx="17" cy="12" r="3"></circle></svg>             
+                </div>
+                <div class="text-xl font-bold">Playground</div>
+                <div class="text-sm text-gray-500">Ample space for sports and outdoor activities, helping students develop teamwork, discipline, and a healthy lifestyle.</div>
+            </div>
+            <div id="auditorium" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-theater w-7 h-7 text-primary"><path d="M2 10s3-3 3-8"></path><path d="M22 10s-3-3-3-8"></path><path d="M10 2c0 4.4-3.6 8-8 8"></path><path d="M14 2c0 4.4 3.6 8 8 8"></path><path d="M2 10s2 2 2 5"></path><path d="M22 10s-2 2-2 5"></path><path d="M8 15h8"></path><path d="M2 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path><path d="M14 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path></svg>
+                </div>
+                <div class="text-xl font-bold">Auditorium</div>
+                <div class="text-sm text-gray-500">A hub for cultural, academic, and creative expression. Students showcase talents in annual programs, debates, and competitions.</div>
+            </div>
+            <div id="smartclassroom" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor w-7 h-7 text-primary"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>                
+                </div>
+                <div class="text-xl font-bold">Smart Classrooms</div>
+                <div class="text-sm text-gray-500">Multimedia-based teaching aids making learning interactive and engaging with audio-visual tools and presentations.</div>
+            </div>
+        </div> 
+
+        <!-- Tablet View -->
+        <div class="hidden lg:hidden md:grid grid-cols-3 gap-6 my-10">
+            <div id="computer" class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop w-7 h-7 text-primary"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path></svg>
+                </div>
+                <div class="text-xl font-bold">Computer Lab</div>
+                <div class="text-sm text-gray-500">Latest technology enabling students to explore the digital world confidently. From coding basics to multimedia projects.</div>
+            </div>
+            <div id="science"  class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flask-conical w-7 h-7 text-primary"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg>                   
+                </div>
+                <div class="text-xl font-bold">Science Lab</div>
+                <div class="text-sm text-gray-500">Designed for curiosity-driven learning with hands-on experiments, strengthening scientific temperament and understanding.</div>
+            </div>
+            <div id="library"  class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library w-7 h-7 text-primary"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg>                
+                </div>
+                <div class="text-xl font-bold">Library</div>
+                <div class="text-sm text-gray-500">A treasure trove of knowledge housing a vast collection of books, journals, and digital resources.</div>
+            </div>
+            <div id="classroom" class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school w-7 h-7 text-primary"><path d="M14 22v-4a2 2 0 1 0-4 0v4"></path><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10"></path><path d="M18 5v17"></path><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6"></path><path d="M6 5v17"></path><circle cx="12" cy="9" r="2"></circle></svg>                
+                </div>
+                <div class="text-xl font-bold">Well-Furnished Classrooms</div>
+                <div class="text-sm text-gray-500">Spacious, ventilated, and technology-enabled classrooms providing a comfortable and stimulating learning environment.</div>
+            </div>
+            <div id="playground"  class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-primary"><rect x="2" y="4" width="20" height="16"></rect><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="3"></circle><rect x="2" y="8" width="5" height="8"></rect><circle cx="7" cy="12" r="3"></circle><rect x="17" y="8" width="5" height="8"></rect><circle cx="17" cy="12" r="3"></circle></svg>             
+                </div>
+                <div class="text-xl font-bold">Playground</div>
+                <div class="text-sm text-gray-500">Ample space for sports and outdoor activities, helping students develop teamwork, discipline, and a healthy lifestyle.</div>
+            </div>
+            <div id="auditorium" class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-theater w-7 h-7 text-primary"><path d="M2 10s3-3 3-8"></path><path d="M22 10s-3-3-3-8"></path><path d="M10 2c0 4.4-3.6 8-8 8"></path><path d="M14 2c0 4.4 3.6 8 8 8"></path><path d="M2 10s2 2 2 5"></path><path d="M22 10s-2 2-2 5"></path><path d="M8 15h8"></path><path d="M2 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path><path d="M14 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path></svg>
+                </div>
+                <div class="text-xl font-bold">Auditorium</div>
+                <div class="text-sm text-gray-500">A hub for cultural, academic, and creative expression. Students showcase talents in annual programs, debates, and competitions.</div>
+            </div>
+            <div id="smartclassroom" class="col-span-1 flex flex-col items-start py-3 px-4 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor w-7 h-7 text-primary"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>                
+                </div>
+                <div class="text-xl font-bold">Smart Classrooms</div>
+                <div class="text-sm text-gray-500">Multimedia-based teaching aids making learning interactive and engaging with audio-visual tools and presentations.</div>
+            </div>
+        </div> 
+
+        <!-- Mobile View -->
+        <div class="md:hidden grid sm:grid-cols-2 grid-cols-1 gap-6 my-10">
+            <div id="computer" class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop w-7 h-7 text-primary"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path></svg>
+                </div>
+                <div class="text-base font-bold">Computer Lab</div>
+                <div class="text-sm text-gray-500">Latest technology enabling students to explore the digital world confidently. From coding basics to multimedia projects.</div>
+            </div>
+            <div id="science"  class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flask-conical w-7 h-7 text-primary"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg>                   
+                </div>
+                <div class="text-base font-bold">Science Lab</div>
+                <div class="text-sm text-gray-500">Designed for curiosity-driven learning with hands-on experiments, strengthening scientific temperament and understanding.</div>
+            </div>
+            <div id="library"  class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-library w-7 h-7 text-primary"><path d="m16 6 4 14"></path><path d="M12 6v14"></path><path d="M8 8v12"></path><path d="M4 4v16"></path></svg>                
+                </div>
+                <div class="text-base font-bold">Library</div>
+                <div class="text-sm text-gray-500">A treasure trove of knowledge housing a vast collection of books, journals, and digital resources.</div>
+            </div>
+            <div id="classroom" class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school w-7 h-7 text-primary"><path d="M14 22v-4a2 2 0 1 0-4 0v4"></path><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10"></path><path d="M18 5v17"></path><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6"></path><path d="M6 5v17"></path><circle cx="12" cy="9" r="2"></circle></svg>                
+                </div>
+                <div class="text-base font-bold">Well-Furnished Classrooms</div>
+                <div class="text-sm text-gray-500">Spacious, ventilated, and technology-enabled classrooms providing a comfortable and stimulating learning environment.</div>
+            </div>
+            <div id="playground"  class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 text-primary"><rect x="2" y="4" width="20" height="16"></rect><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="3"></circle><rect x="2" y="8" width="5" height="8"></rect><circle cx="7" cy="12" r="3"></circle><rect x="17" y="8" width="5" height="8"></rect><circle cx="17" cy="12" r="3"></circle></svg>             
+                </div>
+                <div class="text-base font-bold">Playground</div>
+                <div class="text-sm text-gray-500">Ample space for sports and outdoor activities, helping students develop teamwork, discipline, and a healthy lifestyle.</div>
+            </div>
+            <div id="auditorium" class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-theater w-7 h-7 text-primary"><path d="M2 10s3-3 3-8"></path><path d="M22 10s-3-3-3-8"></path><path d="M10 2c0 4.4-3.6 8-8 8"></path><path d="M14 2c0 4.4 3.6 8 8 8"></path><path d="M2 10s2 2 2 5"></path><path d="M22 10s-2 2-2 5"></path><path d="M8 15h8"></path><path d="M2 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path><path d="M14 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path></svg>
+                </div>
+                <div class="text-base font-bold">Auditorium</div>
+                <div class="text-sm text-gray-500">A hub for cultural, academic, and creative expression. Students showcase talents in annual programs, debates, and competitions.</div>
+            </div>
+            <div id="smartclassroom" class="col-span-1 flex flex-col items-start py-3 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-3 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor w-7 h-7 text-primary"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>                
+                </div>
+                <div class="text-base font-bold">Smart Classrooms</div>
+                <div class="text-sm text-gray-500">Multimedia-based teaching aids making learning interactive and engaging with audio-visual tools and presentations.</div>
+            </div>
+        </div> 
+    </div>
+
+    <!--Student Life at Roseland -->
+    <div id="student-life" class="h-full w-full lg:px-36 px-10 flex flex-col justify-center items-center py-20 bg-white">
+        <section class="flex flex-col items-center mb-8 gap-5 md:max-w-4xl">
+            <div class="font-semibold  md:text-5xl sm:text-4xl text-3xl text-center"> Student Life at Roseland</div>
+            <div class="text-gray-500 text-center md:text-lg text-sm">Vibrant, holistic, and full of opportunities. Students are encouraged to explore, innovate, and express themselves</div>
+        </section>
+
+        <!-- Desktop and Tablet View -->
+        <div class="hidden md:grid lg:grid-cols-4 md:grid-cols-3 gap-5 my-10">
+            <div id="sports" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy w-8 h-8 text-primary"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>                
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Sports & Physical Education</div>
+                <div class="text-sm text-gray-500 text-center">Promoting fitness, teamwork, and discipline</div>
+            </div>
+            <div id="music" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf]  bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music w-8 h-8 text-primary"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>           
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Music, Dance, & Arts</div>
+                <div class="text-sm text-gray-500 text-center">Nurturing creativity and cultural appreciation</div>
+            </div>
+            <div id="debates" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-8 h-8 text-primary"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>             
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Debates, Quizzes & Competitions</div>
+                <div class="text-sm text-gray-500 text-center">Building confidence and communication skills</div>
+            </div>
+            <div id="foreign" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth w-8 h-8 text-primary"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>            
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Foreign Language Programs</div>
+                <div class="text-sm text-gray-500 text-center">Learn with visiting faculty from the USA</div>
+            </div>
+            <div id="annualday" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-party-popper w-8 h-8 text-primary"><path d="M5.8 11.3 2 22l10.7-3.79"></path><path d="M4 3h.01"></path><path d="M22 8h.01"></path><path d="M15 2h.01"></path><path d="M22 20h.01"></path><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"></path><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"></path><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"></path><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"></path></svg>           
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Annual Day & Cultural Celebrations</div>
+                <div class="text-sm text-gray-500 text-center">Showcasing talent and fostering school spirit</div>
+            </div>
+            <div id="social" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf]  bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-8 h-8 text-primary"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>           
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Social Awareness & Community Service</div>
+                <div class="text-sm text-gray-500 text-center">Developing responsibility and empathy</div>
+            </div>
+            <div id="field" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bus w-8 h-8 text-primary"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>           
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Excursions & Field Trips</div>
+                <div class="text-sm text-gray-500 text-center">Learning beyond the classroom</div>
+            </div>
+            <div id="remedial" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-14 w-14 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-8 h-8 text-primary"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>         
+                </div>
+                <div class="text-lg font-bold text-center leading-5">Pre & Post Remedial Classes</div>
+                <div class="text-sm text-gray-500 text-center">Ensuring academic support and success</div>
+            </div>
+        </div>
+
+        <!-- Mobile View -->
+        <div class="md:hidden grid sm:grid-cols-3 grid-cols-1 gap-5 my-10">
+            <div id="sports" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy w-8 h-8 text-primary"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>                
+                </div>
+                <div class="text-base font-bold text-center leading-5">Sports & Physical Education</div>
+                <div class="text-xs text-gray-500 text-center">Promoting fitness, teamwork, and discipline</div>
+            </div>
+            <div id="music" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf]  bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music w-8 h-8 text-primary"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>           
+                </div>
+                <div class="text-base font-bold text-center leading-5">Music, Dance, & Arts</div>
+                <div class="text-xs text-gray-500 text-center">Nurturing creativity and cultural appreciation</div>
+            </div>
+            <div id="debates" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-8 h-8 text-primary"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>             
+                </div>
+                <div class="text-base font-bold text-center leading-5">Debates, Quizzes & Competitions</div>
+                <div class="text-xs text-gray-500 text-center">Building confidence and communication skills</div>
+            </div>
+            <div id="foreign" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth w-8 h-8 text-primary"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"></path><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"></path><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"></path><circle cx="12" cy="12" r="10"></circle></svg>            
+                </div>
+                <div class="text-base font-bold text-center leading-5">Foreign Language Programs</div>
+                <div class="text-xs text-gray-500 text-center">Learn with visiting faculty from the USA</div>
+            </div>
+            <div id="annualday" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-party-popper w-8 h-8 text-primary"><path d="M5.8 11.3 2 22l10.7-3.79"></path><path d="M4 3h.01"></path><path d="M22 8h.01"></path><path d="M15 2h.01"></path><path d="M22 20h.01"></path><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"></path><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"></path><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"></path><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"></path></svg>           
+                </div>
+                <div class="text-base font-bold text-center leading-5">Annual Day & Cultural Celebrations</div>
+                <div class="text-xs text-gray-500 text-center">Showcasing talent and fostering school spirit</div>
+            </div>
+            <div id="social" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf]  bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-8 h-8 text-primary"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>           
+                </div>
+                <div class="text-base font-bold text-center leading-5">Social Awareness & Community Service</div>
+                <div class="text-xs text-gray-500 text-center">Developing responsibility and empathy</div>
+            </div>
+            <div id="field" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bus w-8 h-8 text-primary"><path d="M8 6v6"></path><path d="M15 6v6"></path><path d="M2 12h19.6"></path><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"></path><circle cx="7" cy="18" r="2"></circle><path d="M9 18h5"></path><circle cx="16" cy="18" r="2"></circle></svg>           
+                </div>
+                <div class="text-base font-bold text-center leading-5">Excursions & Field Trips</div>
+                <div class="text-xs text-gray-500 text-center">Learning beyond the classroom</div>
+            </div>
+            <div id="remedial" class="col-span-1 flex flex-col items-center py-4 px-3 border-2 border-gray-200 hover:border-[#486daf] bg-white rounded-xl space-y-4 shadow-md transition transform hover:-translate-y-2 hover:shadow-lg">
+                <div class="h-10 w-10 flex justify-center items-center rounded-full bg-secondary-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-8 h-8 text-primary"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>         
+                </div>
+                <div class="text-base font-bold text-center leading-5">Pre & Post Remedial Classes</div>
+                <div class="text-xs text-gray-500 text-center">Ensuring academic support and success</div>
+            </div>
+        </div>
+        
+        <div class="mx-36 text-center text-gray-500 md:text-lg sm:text-base text-sm w-full">
+            At Roseland, we believe in nurturing the <span class="text-blue-600 font-semibold">mind</span>, <span class="text-green-400 font-semibold">body</span>, and <span class="text-purple-400 font-semibold">spirit</span>, creating well-rounded individuals ready to face the world with confidence and compassion.
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div  id="gallery" class="h-full w-full lg:px-5 px-10 flex flex-col justify-center items-center py-20 bg-gray-50">
+        <section class="flex flex-col items-center mb-8 gap-5 md:max-w-4xl">
+            <div class="font-semibold  md:text-5xl sm:text-4xl text-3xl text-center">Gallery</div>
+            <div class="text-gray-500 text-center md:text-lg text-sm">Explore our vibrant school community through photos and videos from various events and activities.</div>
+        </section>
+
+        <div class="py-1 px-1 grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 rounded-lg mb-6">
+            <!-- Appreciation Card -->
+            <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
+                <div id="appreciation" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
+                    <div class="text-white">
+                        Appreciation
+                    </div>
+                    <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('appreciation',5)">
+                        <span class="text-sm text-primary-400 font-semibold">Click</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#7b2955" 
+                            class="w-5 h-5 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <img src="./gallery/appreciation/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-center" />
+            </div>
+
+            <!-- Science Fair Card -->
+            <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
+                <div id="sciencefair" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
+                    <div class="text-white">
+                        Science Fair
+                    </div>
+                    <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('sciencefair',3)">
+                        <span class="text-sm text-primary-400 font-semibold">Click</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#7b2955" 
+                            class="w-5 h-5 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <img src="./gallery/sciencefair/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+            </div>
+
+            <!-- Festival Celebrations Card -->
+            <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
+                <div id="festival" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
+                    <div class="text-white">
+                        Festival Celebrations
+                    </div>
+                    <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('festival',7)">
+                        <span class="text-sm text-primary-400 font-semibold">Click</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#7b2955" 
+                            class="w-5 h-5 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <img src="./gallery/festival/6.jpeg" class="object-cover object-[center_10%] h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+            </div>
+   
+            <!-- International Community Card -->
+            <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
+                <div id="international_community" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
+                    <div class="text-white">
+                        Bringing the world to the classroom
+                    </div>
+                    <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('international_community',3)">
+                        <span class="text-sm text-primary-400 font-semibold">Click</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#7b2955" 
+                            class="w-5 h-5 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <img src="./gallery/international_community/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-[74%_center]" />
+            </div>
+        </div>
+
+          <!-- Modal -->
+        <div id="galleryModal" class="fixed inset-0 bg-black/70 items-center justify-center hidden z-30">
+            <div class="rounded-lg w-full p-1 mx-40 relative">
+                <!-- Carousel -->
+                <div class="relative">
+                    <!-- Close Button -->
+                    <button id="closeModal" class="absolute top-0 right-0 h-10 w-10 text-gray-600 bg-gray-300 hover:text-black text-2xl">&times;</button>
+
+                    <img id="carouselImage" src="" class="rounded-lg w-full h-[50rem] object-cover object-[top_20%]" />
+
+                    <!-- Prev / Next -->
+                    <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 h-10 w-10 rounded-full cursor-pointer shadow hover:bg-white">&#8592;</button>
+                    <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 h-10 w-10 rounded-full cursor-pointer shadow hover:bg-white">&#8594;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Admissions -->
+    <div id="admissions-main" class="h-full w-full lg:px-36 px-10 flex flex-col justify-center bg-white items-center py-20 ">
+        <section class="flex flex-col items-center mb-8 gap-5 md:max-w-4xl">
+            <div class="font-semibold  md:text-5xl sm:text-4xl text-3xl text-center">Admissions</div>
+            <div class="text-gray-500 text-center md:text-lg text-sm">Join our family of learners. Admissions are open for all grades</div>
+        </section>
+
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-6 mb-10 w-full">
+            <div id="admissions" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] hover:shadow-lg bg-white rounded-xl space-y-3">
+                <div class="flex justify-center items-center gap-2 mb-6">
+                    <div class="md:h-12 md:w-12 h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-6 h-6 text-primary"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    </div>
+                    <div class="md:text-lg text-base font-bold text-center">Admission Process</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-2 mx-1">
+                    <div class="rounded-full md:h-8 md:w-8 h-6 w-6 md:text-base text-sm bg-secondary-400 text-white flex justify-center items-center font-semibold">1</div>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Collect and fill the admission form</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-2 mx-1">
+                    <div class="rounded-full md:h-8 md:w-8 h-6 w-6 md:text-base text-sm bg-secondary-400 text-white flex justify-center items-center font-semibold">2</div>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Submit with required documents</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-2 mx-1">
+                    <div class="rounded-full md:h-8 md:w-8 h-6 w-6 md:text-base text-sm bg-secondary-400 text-white flex justify-center items-center font-semibold">3</div>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Interaction/assessment (as per grade)</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-2 mx-1">
+                    <div class="rounded-full md:h-8 md:w-8 h-6 w-6 md:text-base text-sm bg-secondary-400 text-white flex justify-center items-center font-semibold">4</div>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Admission confirmation & fee payment</div>
+                </div>
+            </div>
+
+            <div id="documents" class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] hover:shadow-lg bg-white rounded-xl md:space-y-5 space-y-3">
+                <div class="flex justify-center items-center gap-2 mb-6">
+                    <div class="md:h-12 md:w-12 h-10 w-10 flex justify-center items-center rounded-xl bg-secondary-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text w-6 h-6 text-secondary"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                    </div>
+                    <div class="md:text-lg text-base font-bold text-center">Documents Required</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-3 mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Birth Certificate</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-3 mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Previous school records (if applicable)</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-3 mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">2 Passport-size photographs</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 lg:mx-3 mx-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="md:text-sm text-xs text-gray-500 text-center">Address proof</div>
+                </div>
+            </div>
+        </div>
+        <div class="md:text-lg sm:text-sm text-xs text-center flex justify-center items-start py-5 px-2  border-2 border-gray-200 bg-white rounded-xl text-gray-500 w-full">
+            📌 For admission details and queries, please contact us or visit our school office
+        </div>
+    </div>
+
+    <!--Contact -->
+    <!-- <div class="h-full w-full px-48 flex flex-col justify-center items-center py-20 bg-gray-50">
+        <section class="flex flex-col items-center px-10 mb-8 gap-5 max-w-4xl">
+            <div class="font-semibold text-5xl">Contact Us</div>
+            <div class="text-gray-500 text-center text-lg">Get in touch with us for admissions, queries, or any information</div>
+        </section>
+
+        <div class="grid grid-cols-2 gap-6 mb-10 w-full">
+            <div class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] hover:shadow-lg bg-white rounded-xl space-y-3">
+                <div class="flex justify-center items-center gap-2 mb-6">
+                    <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb w-6 h-6 text-primary"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>               
+                    </div>
+                    <div class="text-lg font-bold text-center">Admission Process</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-2">
+                    <div class="rounded-full h-8 w-8 bg-secondary-400 text-white flex justify-center items-center font-semibold">1</div>
+                    <div class="text-sm text-gray-500 text-center">Collect and fill the admission form</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-2">
+                    <div class="rounded-full h-8 w-8 bg-secondary-400 text-white flex justify-center items-center font-semibold">2</div>
+                    <div class="text-sm text-gray-500 text-center">Submit with required documents</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-2">
+                    <div class="rounded-full h-8 w-8 bg-secondary-400 text-white flex justify-center items-center font-semibold">3</div>
+                    <div class="text-sm text-gray-500 text-center">Interaction/assessment (as per grade)</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-2">
+                    <div class="rounded-full h-8 w-8 bg-secondary-400 text-white flex justify-center items-center font-semibold">4</div>
+                    <div class="text-sm text-gray-500 text-center">Admission confirmation & fee payment</div>
+                </div>
+            </div>
+
+            <div class="col-span-1 flex flex-col items-start py-4 px-4 border-2 border-gray-200 hover:border-[#486daf] hover:shadow-lg bg-white rounded-xl space-y-3">
+                <div class="flex justify-center items-center gap-2 mb-6">
+                    <div class="h-12 w-12 flex justify-center items-center rounded-xl bg-secondary-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lightbulb w-6 h-6 text-primary"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>               
+                    </div>
+                    <div class="text-lg font-bold text-center">Documents Required</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="text-sm text-gray-500 text-center">Birth Certificate</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="text-sm text-gray-500 text-center">Previous school records (if applicable)</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="text-sm text-gray-500 text-center">2 Passport-size photographs</div>
+                </div>
+                <div class="flex justify-center items-center gap-2 mx-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check w-5 h-5 text-accent flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    <div class="text-sm text-gray-500 text-center">Address proof</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center items-start py-5 border-2 border-gray-200 bg-white rounded-xl text-gray-500 w-full">
+            📌 For admission details and queries, please contact us or visit our school office
+        </div>
+    </div> -->
+
+    <!--Footer-->
+    <div class="h-full w-full lg:px-36 px-10 flex flex-col justify-center items-center py-10 text-gray-50" style="background-image: linear-gradient(to right, #c54b85, #d378a3)" >
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-7">
+            <div class="col-span-1 flex flex-col gap-3">
+                <div class="flex items-center gap-2">
+                    <img src="./images/logo-roseland.png" class="h-14 w-14"/>
+                    <div class="sm:text-sm text-xs">Since 1974</div>
+                </div>
+                <div class="sm:text-sm text-xs">
+                    Empowering young minds through quality education for over five decades
+                </div>
+            </div>
+
+            <div class="col-span-1 flex flex-col md:mx-auto space-y-3">
+                <div class="font-semibold mb-4">Quick Links</div>
+                <div class="sm:text-sm text-xs cursor-pointer nav-link" data-target="about">About Us</div>
+                <div class="sm:text-sm text-xs cursor-pointer nav-link" data-target="academics">Academics</div>
+                <div class="sm:text-sm text-xs cursor-pointer nav-link" data-target="admissions-main">Admissions</div>
+                <!-- <div class="sm:text-sm text-xs cursor-pointer">Contact Us</div> -->
+            </div>
+
+            <div class="col-span-1 flex flex-col space-y-3 ">
+                <div class="font-semibold mb-4">Contact</div>
+                <div class="flex gap-2 items-center">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-6 h-6 text-primary"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="sm:text-sm text-xs">Plot No 238, Near Khwaja Mia Chowk, Ganesh Colony RD, Jalgaon, Maharashtra 425001</div>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-6 h-6 text-primary"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </div>
+                    <div class="sm:text-sm text-xs">roselandschoolindia@gmail.com</div>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-6 h-6 text-primary"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div class="sm:text-sm text-xs">1234567890</div>
+                </div>
+                <div class="flex gap-2 items-center">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-6 h-6 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <div class="sm:text-sm text-xs">Office Hours: Monday - Saturday</div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-100 my-8 opacity-30 w-full"></div>
+        <div class="sm:text-sm text-xs text-center">
+            © 2025 Roseland English Medium High School. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".nav-link").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const targetId = btn.getAttribute("data-target");
+                const targetSection = document.getElementById(targetId);
+                const yOffset = -80; // adjust for your navbar height
+                const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+            })
+        })
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add('bg-white', 'text-black', 'shadow-md');
+            navbar.classList.remove('bg-transparent', 'text-white');
+        } else {
+            navbar.classList.add('bg-transparent', 'text-white');
+            navbar.classList.remove('bg-white', 'text-black', 'shadow-md');
+        }
+        });
+
+        let welcomeCards = ["excellence","community","values","global"]
+        welcomeCards.forEach((ele)=>{
+            let card = document.getElementById(ele)
+            card.addEventListener("mouseover",()=>{
+                let child = card.children[0]
+                child.classList.add("bg-secondary-100")
+            })
+            card.addEventListener("mouseout",()=>{
+                let child = card.children[0]
+                child.classList.remove("bg-secondary-100")
+            })
+        })
+
+        let facilitiesCards = ["computer","science","library","classroom","playground","auditorium","smartclassroom"]
+        facilitiesCards.forEach((ele)=>{
+            let card = document.getElementById(ele)
+            card.addEventListener("mouseover",()=>{
+                let child = card.children[0]
+                child.classList.add("bg-secondary-100")
+            })
+            card.addEventListener("mouseout",()=>{
+                let child = card.children[0]
+                child.classList.remove("bg-secondary-100")
+            })
+        })
+
+        let studentLifeCards = ["sports","music","debates","classroom","foreign","annualday","social","field","remedial"]
+        studentLifeCards.forEach((ele)=>{
+            let card = document.getElementById(ele)
+            card.addEventListener("mouseover",()=>{
+                let child = card.children[0]
+                child.classList.add("bg-secondary-100")
+            })
+            card.addEventListener("mouseout",()=>{
+                let child = card.children[0]
+                child.classList.remove("bg-secondary-100")
+            })
+        })
+
+        let admissionsCard = ["admissions", "documents"]
+        admissionsCard.forEach((ele)=>{
+            let card = document.getElementById(ele)
+            card.addEventListener("mouseover",()=>{
+                let child = card.children[0].children[0]
+                child.classList.add("bg-secondary-100")
+            })
+            card.addEventListener("mouseout",()=>{
+                let child = card.children[0].children[0]
+                child.classList.remove("bg-secondary-100")
+            })
+        })
+
+        const aboutUsCards = ["legacy","mission","vision"]
+        aboutUsCards.forEach((ele)=>{
+            const card = document.getElementById(ele)
+            card.addEventListener("mouseover",()=>{
+                let child = card.children[0].children[0]
+                child.classList.add("bg-secondary-100")
+            })
+            card.addEventListener("mouseout",()=>{
+                let child = card.children[0].children[0]
+                child.classList.remove("bg-secondary-100")
+            })
+        })
+
+        const academicsFunction = (val)=>{
+            let arr = [
+                {
+                    index:"preprimary",
+                    title: "Rose Town Preschool",
+                    svg:`<svg xmlns="http://www.w3.org/2000/svg"  class="h-6 w-6"  viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baby w-4 h-4 mr-2"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path></svg>`,
+                    description: [
+                        `Our pre-primary program focuses on <span class="text-gray-900 font-semibold">play-based learning</span> to nurture curiosity and a love for learning from an early age.`,
+                        `Children are introduced to phonics, numbers, colors, and shapes through interactive activities, storytelling, and creative play.`,
+                        `The emphasis is on building <span class="text-gray-900 font-semibold">social skills, confidence</span>, and a strong foundation for lifelong learning.`
+                    ]
+                },
+                {
+                    index: "primary",
+                    title: "Primary (Grades 1–5)",
+                    svg:`<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"  viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-4 h-4 mr-2"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>`,
+                    description: [
+                        `In the primary years, students focus on <span class="text-gray-900 font-semibold">literacy, numeracy, and creative thinking</span>.`,
+                        `Lessons are activity-based, encouraging critical thinking and problem-solving.`,
+                        `Co-curricular activities such as art, music, and storytelling help children develop creativity and communication skills, while a strong focus on values and discipline lays the foundation for holistic development.`
+                    ]
+                },
+                {
+                    index: "secondary",
+                    title: "(Grades 6–10, SSC Curriculum)",
+                    svg:`<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"  viewBox="0 0 24 24" fill="none" stroke="#486daf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap w-4 h-4 mr-2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>`,
+                    description: [
+                        `The secondary curriculum prepares students for <span class="text-gray-900 font-semibold">SSC board examinations</span> with a comprehensive and modern approach.`,
+                        `We integrate practical learning, projects, group discussions, and digital tools to strengthen conceptual understanding.`,
+                        `Emphasis is placed on <span class="text-gray-900 font-semibold">scientific temperament, analytical thinking, and personality development</span>, ensuring that students excel academically while growing into responsible and confident individuals.`
+                    ]
+                }
+            ]
+            arr.forEach((ele)=>{
+                const docId = document.getElementById(ele.index);
+                const sv = document.getElementById("academics-svg")
+                const title = document.getElementById("class-title")
+                const content = document.getElementById("academics-content")
+
+                if(ele.index==val){
+                    docId.classList.add("bg-white")
+                    sv.innerHTML = ele.svg
+                    title.innerText = ele.title
+                    content.innerHTML = ele.description.map((ele)=>`<div class="mb-4 text-gray-500">${ele}</div>`).join("")
+                }else{
+                    docId.classList.remove("bg-white")
+                }
+            })
+        }
+    
+        const onClickedGalleryCard = (card,n)=>{
+            console.log("card ans n is../..",card, n)
+            // Sample images for the carousel
+            const cardImages = [
+                "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"
+            ];
+            let images = cardImages.slice(0,n)
+            images = images.map((ele)=>{
+                return `./gallery/${card}/${ele}`
+            })
+            let currentIndex = 0;
+
+            const galleryCard = document.getElementById(card);
+            const galleryModal = document.getElementById("galleryModal");
+            const closeModal = document.getElementById("closeModal");
+            const carouselImage = document.getElementById("carouselImage");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+
+            // Open modal
+            galleryCard.addEventListener("click", () => {
+                galleryModal.classList.remove("hidden");
+                galleryModal.classList.add("flex")
+                carouselImage.src = images[currentIndex];
+            });
+
+            // Close modal
+            closeModal.addEventListener("click", () => {
+                galleryModal.classList.add("hidden");
+            });
+
+            // Carousel navigation
+            prevBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                carouselImage.src = images[currentIndex];
+            });
+
+            nextBtn.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                carouselImage.src = images[currentIndex];
+            });
+
+            // Close modal on background click
+            galleryModal.addEventListener("click", (e) => {
+                if (e.target === galleryModal) galleryModal.classList.add("hidden");
+            });
+        }
+    </script>
+</body>
+</html>

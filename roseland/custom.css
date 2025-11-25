@@ -1,0 +1,128 @@
+/* ................ Background Color .................... */
+.bg-primary-50{
+    background-color: #f8e9f0;
+}
+.bg-primary-100{
+    background-color: #f0d2e0;
+}
+.bg-primary-200{
+    background-color: #e1a5c2;
+}
+.bg-primary-300{
+    background-color: #d378a3;
+}
+.bg-primary-400{
+    background-color: #c54b85;
+}
+.bg-primary-500{
+    background-color: #913164;
+}
+.bg-primary-600{
+    background-color: #7b2955;
+}
+.bg-primary-700{
+    background-color: #662146;
+}
+.bg-primary-800{
+    background-color: #501937;
+}
+.bg-primary-900{
+    background-color: #3b1228;
+}
+
+
+.bg-secondary-50{
+    background-color: #e8edf5;
+}
+.bg-secondary-100{
+    background-color: #d1dbeb;
+}
+.bg-secondary-200{
+    background-color: #a3b6d7;
+}
+.bg-secondary-300{
+    background-color: #7692c3;
+}
+.bg-secondary-400{
+    background-color: #486daf;
+}
+.bg-secondary-500{
+    background-color: #214177;
+}
+.bg-secondary-600{
+    background-color: #1d396a;
+}
+.bg-secondary-700{
+    background-color: #182f5a;
+}
+.bg-secondary-800{
+    background-color: #13264b;
+}
+.bg-secondary-900{
+    background-color: #0e1c3b;
+}
+
+
+/* ................ Text Color .................... */
+.text-primary-50{
+    color: #f8e9f0;
+}
+.text-primary-100{
+    color: #f0d2e0;
+}
+.text-primary-200{
+    color: #e1a5c2;
+}
+.text-primary-300{
+    color: #d378a3;
+}
+.text-primary-400{
+    color: #c54b85;
+}
+.text-primary-500{
+    color: #913164;
+}
+.text-primary-600{
+    color: #7b2955;
+}
+.text-primary-700{
+    color: #662146;
+}
+.text-primary-800{
+    color: #501937;
+}
+.text-primary-900{
+    color: #3b1228;
+}
+
+
+.text-secondary-50{
+    color: #e8edf5;
+}
+.text-secondary-100{
+    color: #d1dbeb;
+}
+.text-secondary-200{
+    color: #a3b6d7;
+}
+.text-secondary-300{
+    color: #7692c3;
+}
+.text-secondary-400{
+    color: #486daf;
+}
+.text-secondary-500{
+    color: #214177;
+}
+.text-secondary-600{
+    color: #1d396a;
+}
+.text-secondary-700{
+    color: #182f5a;
+}
+.text-secondary-800{
+    color: #13264b;
+}
+.text-secondary-900{
+    color: #0e1c3b;
+}
