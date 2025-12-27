@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roseland English Medium School</title>
+    <title>Roseland English Medium School, Jalgaon</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="description" content="Roseland English Medium School in Jalgaon offers quality, affordable education since 1974. NEP-aligned curriculum, modern facilities, and holistic student development.">
+
     <link href="custom.css" rel="stylesheet">
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "School",
+        "name": "Roseland English Medium School",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jalgaon",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+        },
+        "foundingDate": "1974"
+        }
+    </script>
+    <meta property="og:title" content="Roseland English Medium School, Jalgaon">
+    <meta property="og:description" content="Quality English medium education since 1974 with modern facilities and NEP-aligned curriculum.">
+    <meta property="og:type" content="website">
+
 </head>
 <body>
     <!--#913164. #214177-->
@@ -13,11 +33,11 @@
     <!--NavBar-->
     <div id="navbar" class="fixed top-0 left-0 w-full h-28 flex items-center justify-between px-10 transition-all duration-300 bg-transparent z-20 text-white">
         <div class=""> 
-            <img src="./images/logo-roseland.png" class="h-24 w-24"/>
+            <img src="./images/logo-roseland.png" alt="logo-roseland" class="h-24 w-24"/>
         </div>
 
         <button id="hamburger" class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
-            <img src="./images/hamburger.png" class="h-10 w-10"/>
+            <img src="./images/hamburger.png" alt="hamburger" class="h-10 w-10"/>
         </button>
 
         <div class="hidden lg:flex items-center gap-12 font-semibold">
@@ -36,7 +56,7 @@
                         bg-white text-gray-700 w-1/2 h-screen transform 
                         transition-transform duration-300 p-6 overflow-scroll">
 
-                <img id="close-menu" src="./images/cancel.png" class="h-10 w-10 cursor-pointer self-end"/>
+                <img id="close-menu" src="./images/cancel.png" alt="close" class="h-10 w-10 cursor-pointer self-end"/>
 
                 <div class="nav-link-mobile nav-link cursor-pointer" data-target="home">Home</div>
                 <div class="nav-link-mobile nav-link cursor-pointer" data-target="about">About</div>
@@ -777,7 +797,7 @@
                     </div>
                 </div>
 
-                <img src="./gallery/appreciation/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-center" />
+                <img src="./gallery/appreciation/1.jpeg" alt="appreciation" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-center" />
             </div>
 
             <!-- Science Fair Card -->
@@ -796,7 +816,7 @@
                     </div>
                 </div>
 
-                <img src="./gallery/sciencefair/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                <img src="./gallery/sciencefair/1.jpeg" alt="sciencefair" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
             </div>
 
             <!-- Festival Celebrations Card -->
@@ -815,7 +835,7 @@
                     </div>
                 </div>
 
-                <img src="./gallery/festival/6.jpeg" class="object-cover object-[center_10%] h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
+                <img src="./gallery/festival/6.jpeg" alt="festival" class="object-cover object-[center_10%] h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105" />
             </div>
    
             <!-- International Community Card -->
@@ -834,19 +854,19 @@
                     </div>
                 </div>
 
-                <img src="./gallery/international_community/1.jpeg" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-[74%_center]" />
+                <img src="./gallery/international_community/1.jpeg" alt="international_community" class="object-cover h-full w-full transition-transform duration-500 ease-in-out group-hover:scale-105 object-[74%_center]" />
             </div>
         </div>
 
           <!-- Modal -->
         <div id="galleryModal" class="fixed inset-0 bg-black/70 items-center justify-center hidden z-30">
-            <div class="rounded-lg p-1 lg:mx-40 mx-10">
+            <div class="rounded-lg p-1 md:mx-40 mx-4">
                 <!-- Carousel -->
                 <div class="relative flex justify-center">
                     <!-- Close Button -->
                     <button id="closeModal" class="absolute top-0 right-0 h-10 w-10 text-gray-600 bg-gray-300 hover:text-black text-2xl cursor-pointer rounded-tr-lg">&times;</button>
                     
-                    <img id="carouselImage" src="" class="rounded-lg min-h-[320px] max-h-[480px] overflow-hidden"></img>
+                    <img id="carouselImage" src="" alt="images" class="rounded-lg min-h-[320px] max-h-[480px] overflow-hidden"></img>
                     <!-- Prev / Next -->
                     
                     <button id="prevBtn" class="absolute flex justify-center items-center left-0.5 top-1/2 transform -translate-y-1/2 md:h-10 md:w-10 w-6 h-6 bg-rose-50 rounded-full cursor-pointer shadow hover:bg-rose-100">
@@ -991,7 +1011,7 @@
         <div class="grid md:grid-cols-3 grid-cols-1 gap-7">
             <div class="col-span-1 flex flex-col gap-3">
                 <div class="flex items-center gap-2">
-                    <img src="./images/logo-roseland.png" class="h-14 w-14"/>
+                    <img src="./images/logo-roseland.png" alt="logo-roseland" class="h-14 w-14"/>
                     <div class="sm:text-sm text-xs">Since 1974</div>
                 </div>
                 <div class="sm:text-sm text-xs">
