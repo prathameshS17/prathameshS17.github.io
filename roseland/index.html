@@ -764,8 +764,8 @@
             <!-- Appreciation Card -->
             <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
                 <div id="appreciation" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
-                    <div class="text-white">
-                        Appreciation
+                    <div class="text-white md:text-md text-sm">
+                        Awards and Accolades 
                     </div>
                     <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('appreciation',5)">
                         <span class="text-sm text-primary-400 font-semibold">Click</span>
@@ -783,7 +783,7 @@
             <!-- Science Fair Card -->
             <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
                 <div id="sciencefair" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
-                    <div class="text-white">
+                    <div class="text-white md:text-md text-sm">
                         Science Fair
                     </div>
                     <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('sciencefair',3)">
@@ -802,7 +802,7 @@
             <!-- Festival Celebrations Card -->
             <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
                 <div id="festival" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
-                    <div class="text-white">
+                    <div class="text-white md:text-md text-sm">
                         Festival Celebrations
                     </div>
                     <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('festival',7)">
@@ -821,7 +821,7 @@
             <!-- International Community Card -->
             <div class="col-span-1 relative h-[28rem] w-64 border border-gray-200 rounded-lg overflow-hidden group">
                 <div id="international_community" class="px-2 absolute bg-primary-200 w-2/3 h-full top-0 left-0 flex justify-center items-center -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-10 opacity-90">
-                    <div class="text-white">
+                    <div class="text-white md:text-md text-sm">
                         Bringing the world to the classroom
                     </div>
                     <div class="self-end mb-4 mr-3 flex items-center space-x-1 animate-bounce absolute right-1 cursor-pointer" onclick="onClickedGalleryCard('international_community',3)">
@@ -840,17 +840,17 @@
 
           <!-- Modal -->
         <div id="galleryModal" class="fixed inset-0 bg-black/70 items-center justify-center hidden z-30">
-            <div class="rounded-lg w-full p-1 mx-40 relative">
+            <div class="rounded-lg p-1 lg:mx-40 mx-10">
                 <!-- Carousel -->
-                <div class="relative">
+                <div class="relative flex justify-center">
                     <!-- Close Button -->
-                    <button id="closeModal" class="absolute top-0 right-0 h-10 w-10 text-gray-600 bg-gray-300 hover:text-black text-2xl">&times;</button>
-
-                    <img id="carouselImage" src="" class="rounded-lg w-full h-[50rem] object-cover object-[top_20%]" />
-
+                    <button id="closeModal" class="absolute top-0 right-0 h-10 w-10 text-gray-600 bg-gray-300 hover:text-black text-2xl cursor-pointer">&times;</button>
+                    
+                    <img id="carouselImage" src="" class="rounded-lg min-h-[320px] max-h-[480px] overflow-hidden"></img>
                     <!-- Prev / Next -->
-                    <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 h-10 w-10 rounded-full cursor-pointer shadow hover:bg-white">&#8592;</button>
-                    <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 h-10 w-10 rounded-full cursor-pointer shadow hover:bg-white">&#8594;</button>
+                    
+                    <button id="prevBtn" class="absolute left-0.5 top-1/2 transform -translate-y-1/2 bg-rose-50 md:p-2 md:h-10 md:w-10 w-7 h-7 rounded-full cursor-pointer shadow hover:bg-rose-100">&#8592;</button>
+                    <button id="nextBtn" class="absolute right-0.5 top-1/2 transform -translate-y-1/2 bg-rose-50 md:p-2 md:h-10 md:w-10 w-7 h-7 rounded-full cursor-pointer shadow hover:bg-rose-100">&#8594;</button>
                 </div>
             </div>
         </div>
@@ -1203,6 +1203,7 @@
             // Close modal
             closeModal.addEventListener("click", () => {
                 galleryModal.classList.add("hidden");
+                images = []
             });
 
             // Carousel navigation
