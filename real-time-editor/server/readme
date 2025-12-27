@@ -1,0 +1,11 @@
+backend/
+├── server.js              // Start Express + WebSocket server
+├── websocket.js           // Handles WebSocket connections
+├── firebase.js            // Firebase Admin SDK setup
+├── middleware/
+│   └── auth.js            // Token verification
+├── routes/
+│   └── documents.js       // REST routes (create, fetch, update docs)
+├── db/
+│   └── mongoClient.js     // MongoDB connection setup
+└── package.json

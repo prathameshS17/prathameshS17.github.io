@@ -1,0 +1,25 @@
+.flip-card {
+  perspective: 1500px;
+}
+
+/* This style is applied to the className={`${flipped?"flipped":""} */
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.flip-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}

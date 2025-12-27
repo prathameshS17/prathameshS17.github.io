@@ -1,0 +1,97 @@
+.page {
+  width: 794px; /* A4 width in px */
+  min-height: 1123px; /* A4 height */
+  padding: 40px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* only in chromium based browsers and opera*/
+/* input {
+  field-sizing: content;
+} */
+
+.ql-editor img {
+  display: inline-block;
+  margin-right: 8px; /* spacing between images */
+  vertical-align: middle; /* aligns with text if present */
+}
+
+.ql-size-8px {
+  font-size: 8px;
+}
+.ql-size-9px {
+  font-size: 9px;
+}
+.ql-size-10px {
+  font-size: 10px;
+}
+.ql-size-11px {
+  font-size: 11px;
+}
+.ql-size-12px {
+  font-size: 12px;
+}
+.ql-size-14px {
+  font-size: 14px;
+}
+.ql-size-16px {
+  font-size: 16px;
+}
+.ql-size-18px {
+  font-size: 18px;
+}
+.ql-size-24px {
+  font-size: 24px;
+}
+.ql-size-30px {
+  font-size: 30px;
+}
+.ql-size-36px {
+  font-size: 36px;
+}
+.ql-size-48px {
+  font-size: 48px;
+}
+
+.ql-font-arial {
+  font-family: Arial, sans-serif;
+}
+
+.ql-font-calibri {
+  font-family: Calibri, sans-serif;
+}
+
+.ql-font-helvetica {
+  font-family: Helvetica, sans-serif;
+}
+
+.ql-font-monospace {
+  font-family: 'Courier New', Courier, monospace;
+  /* More consistent monospace fallback */
+}
+
+.ql-font-sans {
+  font-family: sans-serif;
+}
+
+.ql-font-serif {
+  font-family: serif;
+}
+
+.ql-font-verdana {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.ql-font-segoe{
+   font-family: 'Segoe UI', sans-serif; 
+}
+
+.ql-font-nunito{
+   font-family: 'Nunito', sans-serif; 
+}
+
